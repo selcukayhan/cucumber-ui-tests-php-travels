@@ -40,13 +40,13 @@ Feature: Login Tests for phpTravels
     Given I am an <userType> user of phpTravels
     Then As a <userType> user I should not be able to login on <page> site
     Examples:
-      | userType    | page            |
-      | admin       | defaultUserPage |
-      | admin       | supplierPage    |
-      | supplier    | defaultUserPage |
-      | supplier    | adminPage       |
-      | defaultUser | adminPage       |
-      | defaultUser | supplierPage    |
+      | userType | page            |
+      | admin    | defaultUserPage |
+      | admin    | supplierPage    |
+      | supplier | defaultUserPage |
+      | supplier | adminPage       |
+      | default  | adminPage       |
+      | default  | supplierPage    |
 
 
 

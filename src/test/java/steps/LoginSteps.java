@@ -59,7 +59,7 @@ public class LoginSteps {
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/form[1]/div[2]/div")));
                 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/form[1]/div[2]/div")).isDisplayed());
 
-            } else if (user.equals("defaultUser")) {
+            } else if (user.equals("default")) {
                 defaultUser(driver).supplierLogin();
 
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/form[1]/div[2]/div")));
@@ -72,7 +72,7 @@ public class LoginSteps {
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/form[1]/div[2]/div")));
                 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/form[1]/div[2]/div")).isDisplayed());
 
-            } else if (user.equals("defaultUser")) {
+            } else if (user.equals("default")) {
                 defaultUser(driver).adminLogin();
 
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/form[1]/div[2]/div")));
