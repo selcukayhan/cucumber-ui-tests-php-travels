@@ -84,7 +84,7 @@ public abstract class Page {
         waitObject(driver.findElement(by));
     }
 
-    private boolean waitObjectSafely (WebElement element, int timeOutInSeconds) {
+    private boolean waitObjectSafely(WebElement element, int timeOutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
@@ -95,7 +95,7 @@ public abstract class Page {
         }
     }
 
-    public boolean waitObjectSafely (By by, int timeOutInSeconds) {
+    public boolean waitObjectSafely(By by, int timeOutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -109,6 +109,14 @@ public abstract class Page {
     void typeTo(WebElement element, String keyword) {
         waitObject(element);
         element.sendKeys(keyword);
+    }
+
+    void typeToWithAction(WebElement element, String keyword){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        actions.click();
+        actions.sendKeys(keyword);
+        actions.perform();
     }
 
     public void typeTo(By by, String keyword) {
@@ -126,6 +134,11 @@ public abstract class Page {
     void moveTo(WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
+    }
+
+    void scrolldown(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,1000)");
     }
 
     public void moveTo(By by) {

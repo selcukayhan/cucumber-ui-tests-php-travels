@@ -13,7 +13,10 @@ public class Hooks {
     @Before
     public void setUp() {
         driver = new ChromeDriver();
+        driver.manage().deleteAllCookies();
         driver.get(Config.MAIN_URL);
+        driver.manage().deleteAllCookies();
+        driver.getWindowHandle();
     }
 
     @After
