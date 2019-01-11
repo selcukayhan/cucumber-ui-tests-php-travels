@@ -36,6 +36,7 @@ public class LoginPage extends BasePage {
 
         return new HomePage(driver);
     }
+
     public HomePage supplierOrAdminLogin(User user) {
         typeTo(emailTextBox, user.getEmail());
         typeTo(passwordTextBox, user.getPassword());

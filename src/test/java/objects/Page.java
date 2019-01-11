@@ -111,7 +111,7 @@ public abstract class Page {
         element.sendKeys(keyword);
     }
 
-    void typeToWithAction(WebElement element, String keyword){
+    void typeToWithAction(WebElement element, String keyword) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
         actions.click();
@@ -136,7 +136,7 @@ public abstract class Page {
         actions.moveToElement(element).perform();
     }
 
-    void scrolldown(){
+    void scrolldown() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,1000)");
     }

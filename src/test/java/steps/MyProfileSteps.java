@@ -1,9 +1,7 @@
 package steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import objects.MyProfilePage;
 import objects.User;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -12,7 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static objects.UserPool.defaultUser;
-import static objects.UserPool.invalidLoginUser;
 
 public class MyProfileSteps {
     public WebDriver driver;
@@ -29,13 +26,13 @@ public class MyProfileSteps {
 
 
     @Then("^I want to change phone number to \"([^\"]*)\"$")
-    public void iWantToChangePhoneNumberTo(String phoneNumber){
+    public void iWantToChangePhoneNumberTo(String phoneNumber) {
         defaultUser(driver).changePhoneNumber(phoneNumber);
     }
 
     @Then("^My phone number has to be changed to \"([^\"]*)\"$")
-    public void myPhoneNumberHasToBeChangedTo(String phoneNumber){
-        Assert.assertEquals(phoneNumber,driver.findElement(By.name("phone")).getAttribute("value"));
+    public void myPhoneNumberHasToBeChangedTo(String phoneNumber) {
+        Assert.assertEquals(phoneNumber, driver.findElement(By.name("phone")).getAttribute("value"));
 
     }
 
@@ -45,7 +42,6 @@ public class MyProfileSteps {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("bookings")));
         Assert.assertTrue(defaultUser(driver).checkBook());
-
     }
 }
 

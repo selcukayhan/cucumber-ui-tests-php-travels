@@ -45,8 +45,7 @@ public class MyProfilePage extends BasePage {
 
     public HomePage checkLastBook() {
 
-        System.out.println("selam" + driver.findElement(By.xpath("//*[contains(text(),'Booking Code ')]")).getText());
-        System.out.println("  as" + bookId);
+        System.out.println("Last Book : " + driver.findElement(By.xpath("//*[contains(text(),'Booking Code ')]")).getText());
 
         Assert.assertEquals(driver.findElement(By.xpath("//*[contains(text(),'Booking Code ')]")).getText(), bookId);
 

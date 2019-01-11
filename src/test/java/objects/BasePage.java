@@ -83,6 +83,14 @@ public class BasePage extends Page {
     @FindBy(xpath = "//*[@id=\"invoiceTable\"]/tbody/tr[2]/td/div[1]/table/tbody/tr/td/div[3]")
     private WebElement invoice;
 
+    @FindBy(id = "Hotels")
+    private WebElement hotelsDropdown;
+
+    @FindBy(xpath = "//*[@id=\"Hotels\"]/li[1]/a")
+    private WebElement hotelsFromDropdown;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div/form/button")
+    private WebElement addButton;
 
     public BasePage(WebDriver driver) {
         super(driver);
@@ -165,5 +173,44 @@ public class BasePage extends Page {
         driver.get("https://www.phptravels.net/Account");
 
         return new MyProfilePage(driver);
+    }
+
+    public HomePage callHotelsPage() {
+        driver.get("https://www.phptravels.net/admin/hotels");
+
+        return new HomePage(driver);
+    }
+
+    public HomePage addMonksPalace() {
+        clickTo(addButton);
+        typeToWithAction(driver.findElement(By.name("hotelname")), "Monks Palace");
+
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe[contains(@title,'Rich Text Editor, hoteldesc')]")));
+        WebElement iframe = driver.findElement(By.xpath("//iframe[contains(@title,'Rich Text Editor, hoteldesc')]"));
+        driver.switchTo().frame(iframe);
+        typeToWithAction(driver.findElement(By.xpath("/html/body/p")), "selam adadsasd a");
+        driver.switchTo().defaultContent();
+        scrolldown();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mapaddress")));
+        typeToWithAction(driver.findElement(By.partialLinkText("Enter Location")), "Hilversum");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"select2-drop\"]/ul/li/div/span")));
+        clickTo(driver.findElement(By.xpath("//*[@id=\"select2-drop\"]/ul/li/div/span")));
+
+        scrolldown();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"add\"]")));
+
+        clickTo(By.xpath("//*[@id=\"content\"]/form/div/ul/li[2]/a"));
+
+        clickTo(driver.findElement(By.xpath("//*[@id=\"FACILITIES\"]/div/div/div[1]/label")));
+
+        clickTo(driver.findElement(By.xpath("//*[@id=\"FACILITIES\"]/div/div/div[8]/label")));
+
+        clickTo(driver.findElement(By.xpath("//*[@id=\"add\"]")));
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Monks Palace")));
+
+        return new HomePage(driver);
     }
 }

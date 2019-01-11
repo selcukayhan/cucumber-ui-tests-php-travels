@@ -21,6 +21,6 @@ public class UserPool {
     }
 
     public static User adminUser(WebDriver driver) {
-        return new User(Config.DEFAULT_EMAIL, Config.INVALID_PASSWORD, Config.DEFAULT_USERNAME, driver);
+        return new User(Config.ADMIN_EMAIL, Config.ADMIN_PASSWORD, Config.ADMIN_USERNAME, driver);
     }
 }

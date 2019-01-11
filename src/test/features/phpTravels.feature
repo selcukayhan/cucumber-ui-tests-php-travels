@@ -34,7 +34,6 @@ Feature: Login Tests for phpTravels
     Then I book cheapest room of cheapest hotel
     Then I should see the invoice
     Then My book should be in my account with same Book id
-    #refactor
 
   Scenario Outline: Users able to login only their sections
     Given I am an <userType> user of phpTravels
@@ -47,6 +46,11 @@ Feature: Login Tests for phpTravels
       | supplier | adminPage       |
       | default  | adminPage       |
       | default  | supplierPage    |
+
+  Scenario: create hotel and book room
+    Given I am an admin user of phpTravels.com
+    When I want to add Monks Palace as a Hotel
+
 
 
 

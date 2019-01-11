@@ -1,7 +1,5 @@
 package steps;
 
-import configuration.Config;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import objects.User;
@@ -65,7 +63,7 @@ public class LoginSteps {
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/form[1]/div[2]/div")));
                 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/form[1]/div[2]/div")).isDisplayed());
             }
-        } else if (page.equals("adminPage")){
+        } else if (page.equals("adminPage")) {
             if (user.equals("supplier")) {
                 supplierUser(driver).adminLogin();
 

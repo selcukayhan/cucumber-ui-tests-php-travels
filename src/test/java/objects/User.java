@@ -54,6 +54,7 @@ public class User {
                 .supplierOrAdminLogin(this);
         return this;
     }
+
     public User adminLogin() {
         new HomePage(driver)
                 .callAdminLoginPage()
@@ -61,54 +62,62 @@ public class User {
         return this;
     }
 
-    public User logout(){
+    public User logout() {
         new HomePage(driver)
                 .logout();
         return this;
     }
 
-    public User searchHotels(String city, String checkIn, String checkOut){
+    public User searchHotels(String city, String checkIn, String checkOut) {
         new HomePage(driver)
-                .searchHotels(city,checkIn,checkOut);
+                .searchHotels(city, checkIn, checkOut);
 
         return this;
     }
 
-    public User filter5star(){
+    public User filter5star() {
         new HomePage(driver).filter5Starts();
 
         return this;
     }
 
-    public User myProfile(){
+    public User myProfile() {
         new HomePage(driver)
                 .callMyProfilePage();
-        return  this;
+        return this;
     }
 
-    public User myProfileFromUrl(){
+    public User myProfileFromUrl() {
         new HomePage(driver)
                 .callMyProfilePageFromUrl();
-        return  this;
+        return this;
     }
 
-    public User bookFirstHotelInResults(){
+    public User bookFirstHotelInResults() {
         new HomePage(driver).bookFirstHotel();
 
         return this;
     }
 
-    public User changePhoneNumber(String phoneNumber){
+    public User changePhoneNumber(String phoneNumber) {
         new MyProfilePage(driver)
                 .changePhoneNumberTo(phoneNumber);
 
-        return  this;
+        return this;
     }
 
-    public boolean checkBook(){
+    public boolean checkBook() {
         new MyProfilePage(driver).goToMyProfilePage().checkLastBook();
 
         return true;
+    }
+
+    public User adminAddMonksPalace() {
+        new HomePage(driver)
+                .callHotelsPage()
+                .addMonksPalace();
+
+        return this;
     }
 }
 
